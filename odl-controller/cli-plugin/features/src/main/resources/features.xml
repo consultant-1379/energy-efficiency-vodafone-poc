@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="cli-plugin-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0">
+    <repository>mvn:com.ericsson.cli.plugin/features-cli-plugin/${features.cli.plugin.version}/xml/features</repository>
+ 
+    <feature name='cli-plugin' version='${project.version}' description="cli plugin">
+      <bundle>mvn:com.google.guava/guava/${com.google.guava.version}</bundle>
+      <bundle>mvn:com.ericsson.cli.plugin/cli-plugin-model/${cli.plugin.model.version}</bundle>
+      <bundle>mvn:com.ericsson.cli.plugin/cli-plugin-impl/${cli.plugin.impl.version}</bundle>
+   </feature>
+</features>

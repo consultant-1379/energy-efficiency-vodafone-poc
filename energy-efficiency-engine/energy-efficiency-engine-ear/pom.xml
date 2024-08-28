@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>energy-efficiency-engine</artifactId>
+        <groupId>com.ericsson.vodafone.poc.energy-efficiency-engine</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>energy-efficiency-engine-ear</artifactId>
+    <packaging>ear</packaging>
+    <name>[${project.artifactId}] EAR module</name>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <generateApplicationXml>true</generateApplicationXml>
+                    <generateModuleId>true</generateModuleId>
+                    <initializeInOrder>true</initializeInOrder>
+                    <filtering>true</filtering>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <applicationName>${project.parent.artifactId}</applicationName>
+                    <finalName>${project.artifactId}-${project.version}</finalName>
+                    <archive>
+                        <manifestEntries>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifestEntries>
+                    </archive>
+                    <modules>
+                        <ejbModule>
+                            <groupId>${project.parent.groupId}</groupId>
+                            <artifactId>${project.parent.artifactId}-ejb</artifactId>
+                        </ejbModule>
+                        <webModule>
+                            <groupId>${project.parent.groupId}</groupId>
+                            <artifactId>${project.parent.artifactId}-war</artifactId>
+                            <context-root>/eee</context-root>
+                        </webModule>
+                        <jarModule>
+                            <groupId>org.quartz-scheduler</groupId>
+                            <artifactId>quartz</artifactId>
+                        </jarModule>
+                        <!--<jarModule>-->
+                            <!--<groupId>com.ericsson.vodafone.poc.predictor</groupId>-->
+                            <!--<artifactId>predictor-jar</artifactId>-->
+                        <!--</jarModule>-->
+                    </modules>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>${project.parent.artifactId}-ejb</artifactId>
+            <version>${project.parent.version}</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>${project.parent.artifactId}-war</artifactId>
+            <version>${project.parent.version}</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>com.ericsson.vodafone.poc.predictor</groupId>
+            <artifactId>predictor-jar</artifactId>
+            <version>${project.parent.version}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.3.0</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+</project>

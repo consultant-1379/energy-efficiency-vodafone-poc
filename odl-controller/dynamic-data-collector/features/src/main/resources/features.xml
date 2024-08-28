@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="dynamic-data-collector-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0">
+    <repository>mvn:org.opendaylight.yangtools/features-yangtools/${features.yangtools.version}/xml/features</repository>
+    <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/${mdsal.model.version}/xml/features</repository>
+    <repository>mvn:org.opendaylight.controller/features-mdsal/${mdsal.version}/xml/features</repository>
+    <repository>mvn:com.ericsson.basic.network.functions/features-basic-network-functions/${features.basic.network.functions.version}/xml/features</repository>
+ 
+    <feature name='dynamic-data-collector' version='${project.version}' description="dynamic data collector">
+      <feature version="${features.basic.network.functions.version}">basic-network-functions</feature>
+      <bundle>mvn:com.ericsson.dynamic.data.collector/dynamic-data-collector-model/${dynamic.data.collector.model.version}</bundle>
+      <bundle>mvn:com.ericsson.dynamic.data.collector/dynamic-data-collector-impl/${dynamic.data.collector.impl.version}</bundle>
+    </feature>
+</features>

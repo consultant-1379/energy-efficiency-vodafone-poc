@@ -1,0 +1,699 @@
+if (typeof define !== 'function') {
+    var define = require('../../../acceptance/node_modules/amdefine')(module);
+}
+
+define(function() {
+    return {
+       "network": [
+           {
+               "network-id": "MINI-LINK-topo",
+               "node": [
+                   {
+                       "node-id": "MINI-LINK-6691-2",
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "oper-status": "up",
+                               "te-node-attributes": {
+                                   "signaling-address": [
+                                       "10.42.142.82"
+                                   ],
+                                   "name": "MINI-LINK-6691-2",
+                                   "admin-status": "up",
+                                   "domain-id": 65005
+                               }
+                           },
+                           "config": {
+                               "te-node-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       },
+                       "ietf-te-topology:te-node-id": "10.42.142.82",
+                       "ietf-l2-topology:l2-node-attributes": {
+                           "name": "MINI-LINK-6691-2",
+                           "management-address": [
+                               "10.42.142.82"
+                           ]
+                       },
+                       "ietf-network-topology:termination-point": [
+                           {
+                               "tp-id": "WAN-1/1/1",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6691-2:WAN-1/1/1",
+                               "supporting-termination-point": [
+                                   {
+                                       "network-ref": "MINI-LINK-topo",
+                                       "node-ref": "MINI-LINK-6691-2",
+                                       "tp-ref": "RF-1/1.1/1"
+                                   },
+                                   {
+                                       "network-ref": "MINI-LINK-topo",
+                                       "node-ref": "MINI-LINK-6691-2",
+                                       "tp-ref": "RF-1/1.2/1"
+                                   }
+                               ]
+                           },
+                           {
+                               "tp-id": "LAN-1/4/3",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6691-2:LAN-1/4/3"
+                           },
+                           {
+                               "tp-id": "LAN-1/4/4",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6691-2:LAN-1/4/4"
+                           },
+                           {
+                               "tp-id": "LAN-1/4/1",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6691-2:LAN-1/4/1"
+                           },
+                           {
+                               "tp-id": "RF-1/1.1/1",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6691-2:RF-1/1.1/1"
+                           },
+                           {
+                               "tp-id": "RF-1/1.2/1",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6691-2:RF-1/1.2/1"
+                           }
+                       ]
+                   },
+                   {
+                       "node-id": "MINI-LINK-6691-1",
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "oper-status": "up",
+                               "te-node-attributes": {
+                                   "signaling-address": [
+                                       "10.42.142.81"
+                                   ],
+                                   "name": "MINI-LINK-6691-1",
+                                   "admin-status": "up",
+                                   "domain-id": 65005
+                               }
+                           },
+                           "config": {
+                               "te-node-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       },
+                       "ietf-te-topology:te-node-id": "10.42.142.81",
+                       "ietf-l2-topology:l2-node-attributes": {
+                           "name": "MINI-LINK-6691-1",
+                           "management-address": [
+                               "10.42.142.81"
+                           ]
+                       },
+                       "ietf-network-topology:termination-point": [
+                           {
+                               "tp-id": "WAN-1/1/1",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6691-1:WAN-1/1/1",
+                               "supporting-termination-point": [
+                                   {
+                                       "network-ref": "MINI-LINK-topo",
+                                       "node-ref": "MINI-LINK-6691-1",
+                                       "tp-ref": "RF-1/1.1/1"
+                                   },
+                                   {
+                                       "network-ref": "MINI-LINK-topo",
+                                       "node-ref": "MINI-LINK-6691-1",
+                                       "tp-ref": "RF-1/1.2/1"
+                                   }
+                               ]
+                           },
+                           {
+                               "tp-id": "LAN-1/4/3",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6691-1:LAN-1/4/3"
+                           },
+                           {
+                               "tp-id": "LAN-1/4/4",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6691-1:LAN-1/4/4"
+                           },
+                           {
+                               "tp-id": "LAN-1/4/1",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6691-1:LAN-1/4/1"
+                           },
+                           {
+                               "tp-id": "RF-1/1.1/1",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6691-1:RF-1/1.1/1"
+                           },
+                           {
+                               "tp-id": "RF-1/1.2/1",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6691-1:RF-1/1.2/1"
+                           }
+                       ]
+                   },
+                   {
+                       "node-id": "MINI-LINK-6351-4",
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "oper-status": "up",
+                               "te-node-attributes": {
+                                   "signaling-address": [
+                                       "10.42.142.10"
+                                   ],
+                                   "name": "MINI-LINK-6351-4",
+                                   "admin-status": "up",
+                                   "domain-id": 65005
+                               }
+                           },
+                           "config": {
+                               "te-node-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       },
+                       "ietf-te-topology:te-node-id": "10.42.142.10",
+                       "ietf-l2-topology:l2-node-attributes": {
+                           "name": "MINI-LINK-6351-4",
+                           "management-address": [
+                               "10.42.142.10"
+                           ]
+                       },
+                       "ietf-network-topology:termination-point": [
+                           {
+                               "tp-id": "LAN-1/1",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6351-4:LAN-1/1"
+                           },
+                           {
+                               "tp-id": "WAN-1/2",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6351-4:WAN-1/2"
+                           }
+                       ]
+                   },
+                   {
+                       "node-id": "MINI-LINK-6351-3",
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "oper-status": "up",
+                               "te-node-attributes": {
+                                   "signaling-address": [
+                                       "10.42.142.9"
+                                   ],
+                                   "name": "MINI-LINK-6351-3",
+                                   "admin-status": "up",
+                                   "domain-id": 65005
+                               }
+                           },
+                           "config": {
+                               "te-node-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       },
+                       "ietf-te-topology:te-node-id": "10.42.142.9",
+                       "ietf-l2-topology:l2-node-attributes": {
+                           "name": "MINI-LINK-6351-3",
+                           "management-address": [
+                               "10.42.142.9"
+                           ]
+                       },
+                       "ietf-network-topology:termination-point": [
+                           {
+                               "tp-id": "LAN-1/1",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6351-3:LAN-1/1"
+                           },
+                           {
+                               "tp-id": "WAN-1/2",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6351-3:WAN-1/2"
+                           }
+                       ]
+                   },
+                   {
+                       "node-id": "MINI-LINK-6351-2",
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "oper-status": "up",
+                               "te-node-attributes": {
+                                   "signaling-address": [
+                                       "10.42.142.11"
+                                   ],
+                                   "name": "MINI-LINK-6351-2",
+                                   "admin-status": "up",
+                                   "domain-id": 65005
+                               }
+                           },
+                           "config": {
+                               "te-node-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       },
+                       "ietf-te-topology:te-node-id": "10.42.142.11",
+                       "ietf-l2-topology:l2-node-attributes": {
+                           "name": "MINI-LINK-6351-2",
+                           "management-address": [
+                               "10.42.142.11"
+                           ]
+                       },
+                       "ietf-network-topology:termination-point": [
+                           {
+                               "tp-id": "WAN-1/2",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6351-2:WAN-1/2"
+                           },
+                           {
+                               "tp-id": "LAN-1/1",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6351-2:LAN-1/1"
+                           }
+                       ]
+                   },
+                   {
+                       "node-id": "MINI-LINK-6351-1",
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "oper-status": "up",
+                               "te-node-attributes": {
+                                   "signaling-address": [
+                                       "10.42.142.12"
+                                   ],
+                                   "name": "MINI-LINK-6351-1",
+                                   "admin-status": "up",
+                                   "domain-id": 65005
+                               }
+                           },
+                           "config": {
+                               "te-node-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       },
+                       "ietf-te-topology:te-node-id": "10.42.142.12",
+                       "ietf-l2-topology:l2-node-attributes": {
+                           "name": "MINI-LINK-6351-1",
+                           "management-address": [
+                               "10.42.142.12"
+                           ]
+                       },
+                       "ietf-network-topology:termination-point": [
+                           {
+                               "tp-id": "WAN-1/2",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6351-1:WAN-1/2"
+                           },
+                           {
+                               "tp-id": "LAN-1/1",
+                               "network-topology-interfaces:if-ref": "MINI-LINK-6351-1:LAN-1/1"
+                           }
+                       ]
+                   }
+               ],
+               "ietf-network-topology:link": [
+                   {
+                       "link-id": "MINI-LINK-6351-2:LAN-1/1",
+                       "destination": {
+                           "dest-tp": "LAN-1/4/1",
+                           "dest-node": "MINI-LINK-6691-1"
+                       },
+                       "source": {
+                           "source-tp": "LAN-1/1",
+                           "source-node": "MINI-LINK-6351-2"
+                       },
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "te-link-attributes": {
+                                   "name": "MINI-LINK-6351-2:LAN-1/1",
+                                   "admin-status": "up",
+                                   "max-link-bandwidth": "125000000",
+                                   "te-default-metric": 1
+                               },
+                               "oper-status": "up"
+                           },
+                           "config": {
+                               "te-link-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "link-id": "MINI-LINK-6351-1:WAN-1/2",
+                       "destination": {
+                           "dest-tp": "WAN-1/2",
+                           "dest-node": "MINI-LINK-6351-2"
+                       },
+                       "source": {
+                           "source-tp": "WAN-1/2",
+                           "source-node": "MINI-LINK-6351-1"
+                       },
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "te-link-attributes": {
+                                   "name": "MINI-LINK-6351-1:WAN-1/2",
+                                   "admin-status": "up",
+                                   "max-link-bandwidth": "17950000",
+                                   "te-default-metric": 1
+                               },
+                               "oper-status": "up"
+                           },
+                           "config": {
+                               "te-link-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "link-id": "MINI-LINK-6351-3:LAN-1/1",
+                       "destination": {
+                           "dest-tp": "LAN-1/4/4",
+                           "dest-node": "MINI-LINK-6691-1"
+                       },
+                       "source": {
+                           "source-tp": "LAN-1/1",
+                           "source-node": "MINI-LINK-6351-3"
+                       },
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "te-link-attributes": {
+                                   "name": "MINI-LINK-6351-3:LAN-1/1",
+                                   "admin-status": "up",
+                                   "max-link-bandwidth": "125000000",
+                                   "te-default-metric": 1
+                               },
+                               "oper-status": "up"
+                           },
+                           "config": {
+                               "te-link-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "link-id": "MINI-LINK-6351-2:WAN-1/2",
+                       "destination": {
+                           "dest-tp": "WAN-1/2",
+                           "dest-node": "MINI-LINK-6351-1"
+                       },
+                       "source": {
+                           "source-tp": "WAN-1/2",
+                           "source-node": "MINI-LINK-6351-2"
+                       },
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "te-link-attributes": {
+                                   "name": "MINI-LINK-6351-2:WAN-1/2",
+                                   "admin-status": "up",
+                                   "max-link-bandwidth": "17950000",
+                                   "te-default-metric": 1
+                               },
+                               "oper-status": "up"
+                           },
+                           "config": {
+                               "te-link-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "link-id": "MINI-LINK-6691-1:WAN-1/1/1",
+                       "destination": {
+                           "dest-tp": "WAN-1/1/1",
+                           "dest-node": "MINI-LINK-6691-2"
+                       },
+                       "source": {
+                           "source-tp": "WAN-1/1/1",
+                           "source-node": "MINI-LINK-6691-1"
+                       },
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "te-link-attributes": {
+                                   "name": "MINI-LINK-6691-1:WAN-1/1/1",
+                                   "admin-status": "up",
+                                   "max-link-bandwidth": "100547750",
+                                   "te-default-metric": 1
+                               },
+                               "oper-status": "up"
+                           },
+                           "config": {
+                               "te-link-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       },
+                       "supporting-link": [
+                           {
+                               "network-ref": "MINI-LINK-topo",
+                               "link-ref": "MINI-LINK-6691-1:RF-1/1.1/1"
+                           },
+                           {
+                               "network-ref": "MINI-LINK-topo",
+                               "link-ref": "MINI-LINK-6691-1:RF-1/1.2/1"
+                           }
+                       ]
+                   },
+                   {
+                       "link-id": "MINI-LINK-6691-1:RF-1/1.1/1",
+                       "destination": {
+                           "dest-tp": "RF-1/1.1/1",
+                           "dest-node": "MINI-LINK-6691-2"
+                       },
+                       "source": {
+                           "source-tp": "RF-1/1.1/1",
+                           "source-node": "MINI-LINK-6691-1"
+                       },
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "te-link-attributes": {
+                                   "name": "MINI-LINK-6691-1:RF-1/1.1/1",
+                                   "admin-status": "up",
+                                   "max-link-bandwidth": "50273875",
+                                   "te-default-metric": 1
+                               },
+                               "oper-status": "up"
+                           },
+                           "config": {
+                               "te-link-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "link-id": "MINI-LINK-6691-1:RF-1/1.2/1",
+                       "destination": {
+                           "dest-tp": "RF-1/1.2/1",
+                           "dest-node": "MINI-LINK-6691-2"
+                       },
+                       "source": {
+                           "source-tp": "RF-1/1.2/1",
+                           "source-node": "MINI-LINK-6691-1"
+                       },
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "te-link-attributes": {
+                                   "name": "MINI-LINK-6691-1:RF-1/1.2/1",
+                                   "admin-status": "up",
+                                   "max-link-bandwidth": "50273875",
+                                   "te-default-metric": 1
+                               },
+                               "oper-status": "up"
+                           },
+                           "config": {
+                               "te-link-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "link-id": "MINI-LINK-6351-4:WAN-1/2",
+                       "destination": {
+                           "dest-tp": "WAN-1/2",
+                           "dest-node": "MINI-LINK-6351-3"
+                       },
+                       "source": {
+                           "source-tp": "WAN-1/2",
+                           "source-node": "MINI-LINK-6351-4"
+                       },
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "te-link-attributes": {
+                                   "name": "MINI-LINK-6351-4:WAN-1/2",
+                                   "admin-status": "up",
+                                   "max-link-bandwidth": "73950000",
+                                   "te-default-metric": 1
+                               },
+                               "oper-status": "up"
+                           },
+                           "config": {
+                               "te-link-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "link-id": "MINI-LINK-6351-3:WAN-1/2",
+                       "destination": {
+                           "dest-tp": "WAN-1/2",
+                           "dest-node": "MINI-LINK-6351-4"
+                       },
+                       "source": {
+                           "source-tp": "WAN-1/2",
+                           "source-node": "MINI-LINK-6351-3"
+                       },
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "te-link-attributes": {
+                                   "name": "MINI-LINK-6351-3:WAN-1/2",
+                                   "admin-status": "up",
+                                   "max-link-bandwidth": "73950000",
+                                   "te-default-metric": 1
+                               },
+                               "oper-status": "up"
+                           },
+                           "config": {
+                               "te-link-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "link-id": "MINI-LINK-6691-2:WAN-1/1/1",
+                       "destination": {
+                           "dest-tp": "WAN-1/1/1",
+                           "dest-node": "MINI-LINK-6691-1"
+                       },
+                       "source": {
+                           "source-tp": "WAN-1/1/1",
+                           "source-node": "MINI-LINK-6691-2"
+                       },
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "te-link-attributes": {
+                                   "name": "MINI-LINK-6691-2:WAN-1/1/1",
+                                   "admin-status": "up",
+                                   "max-link-bandwidth": "100547750",
+                                   "te-default-metric": 1
+                               },
+                               "oper-status": "up"
+                           },
+                           "config": {
+                               "te-link-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       },
+                       "supporting-link": [
+                           {
+                               "network-ref": "MINI-LINK-topo",
+                               "link-ref": "MINI-LINK-6691-2:RF-1/1.1/1"
+                           },
+                           {
+                               "network-ref": "MINI-LINK-topo",
+                               "link-ref": "MINI-LINK-6691-2:RF-1/1.2/1"
+                           }
+                       ]
+                   },
+                   {
+                       "link-id": "MINI-LINK-6691-2:RF-1/1.1/1",
+                       "destination": {
+                           "dest-tp": "RF-1/1.1/1",
+                           "dest-node": "MINI-LINK-6691-1"
+                       },
+                       "source": {
+                           "source-tp": "RF-1/1.1/1",
+                           "source-node": "MINI-LINK-6691-2"
+                       },
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "te-link-attributes": {
+                                   "name": "MINI-LINK-6691-2:RF-1/1.1/1",
+                                   "admin-status": "up",
+                                   "max-link-bandwidth": "50273875",
+                                   "te-default-metric": 1
+                               },
+                               "oper-status": "up"
+                           },
+                           "config": {
+                               "te-link-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "link-id": "MINI-LINK-6691-2:RF-1/1.2/1",
+                       "destination": {
+                           "dest-tp": "RF-1/1.2/1",
+                           "dest-node": "MINI-LINK-6691-1"
+                       },
+                       "source": {
+                           "source-tp": "RF-1/1.2/1",
+                           "source-node": "MINI-LINK-6691-2"
+                       },
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "te-link-attributes": {
+                                   "name": "MINI-LINK-6691-2:RF-1/1.2/1",
+                                   "admin-status": "up",
+                                   "max-link-bandwidth": "50273875",
+                                   "te-default-metric": 1
+                               },
+                               "oper-status": "up"
+                           },
+                           "config": {
+                               "te-link-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "link-id": "MINI-LINK-6691-1:LAN-1/4/1",
+                       "destination": {
+                           "dest-tp": "LAN-1/1",
+                           "dest-node": "MINI-LINK-6351-2"
+                       },
+                       "source": {
+                           "source-tp": "LAN-1/4/1",
+                           "source-node": "MINI-LINK-6691-1"
+                       },
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "te-link-attributes": {
+                                   "name": "MINI-LINK-6691-1:LAN-1/4/1",
+                                   "admin-status": "up",
+                                   "max-link-bandwidth": "125000000",
+                                   "te-default-metric": 1
+                               },
+                               "oper-status": "up"
+                           },
+                           "config": {
+                               "te-link-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "link-id": "MINI-LINK-6691-1:LAN-1/4/4",
+                       "destination": {
+                           "dest-tp": "LAN-1/1",
+                           "dest-node": "MINI-LINK-6351-3"
+                       },
+                       "source": {
+                           "source-tp": "LAN-1/4/4",
+                           "source-node": "MINI-LINK-6691-1"
+                       },
+                       "ietf-te-topology:te": {
+                           "state": {
+                               "te-link-attributes": {
+                                   "name": "MINI-LINK-6691-1:LAN-1/4/4",
+                                   "admin-status": "up",
+                                   "max-link-bandwidth": "125000000",
+                                   "te-default-metric": 1
+                               },
+                               "oper-status": "up"
+                           },
+                           "config": {
+                               "te-link-attributes": {
+                                   "admin-status": "up"
+                               }
+                           }
+                       }
+                   }
+               ]
+           }
+       ]
+    };
+});

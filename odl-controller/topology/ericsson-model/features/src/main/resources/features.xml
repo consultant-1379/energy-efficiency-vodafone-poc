@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="ericsson-model-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0">
+    <repository>mvn:org.opendaylight.yangtools/features-yangtools/${features.yangtools.version}/xml/features</repository>
+    <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/${mdsal.model.version}/xml/features</repository>
+    <repository>mvn:org.opendaylight.controller/features-mdsal/${mdsal.version}/xml/features</repository>
+    <repository>mvn:org.opendaylight.model/features-ietf-model/${odl.ietf.model.version}/xml/features</repository>
+    <repository>mvn:org.opendaylight.netconf/features-restconf/${odl.features.restconf.version}/xml/features</repository>
+
+    <feature name='ericsson-model' version='${project.version}' description="ericsson model">
+        <feature version="${odl.features.restconf.version}">odl-restconf-all</feature>
+        <feature version="${odl.ietf.model.version}">odl-ietf-model</feature>
+        <bundle>mvn:com.ericsson.model/l2-topology-lag/${l2.topology.lag.version}</bundle>
+        <bundle>mvn:com.ericsson.model/network-topology-interfaces/${network.topology.interfaces.version}</bundle>
+        <bundle>mvn:com.ericsson.model/interfaces-network-topology/${interfaces.network.topology.version}</bundle>
+        <bundle>mvn:com.ericsson.model/topology-inventory/${topology.inventory.version}</bundle>
+        <bundle>mvn:com.ericsson.model/vpn-service-poc/${vpn.service.poc.version}</bundle>
+    </feature>
+</features>

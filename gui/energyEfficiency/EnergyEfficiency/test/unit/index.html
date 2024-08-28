@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit tests</title>
+    <script src="../../_tools/index.js"></script>
+    <script src="../../.cdt/require.config.js"></script>
+    <script>
+        loadTestDependencies({
+            requireConfig: {
+                baseUrl: "../../src",
+                i18n: {
+                    locales: ['en-us'],
+                    localesDir: "../../locales"
+                }
+            },
+            tests: [
+                "EnergyEfficiency",
+                "common",
+                "types/types",
+                "types/Type",
+                "types/bonding",
+                "types/links",
+                "types/nodes",
+                "types/enums",
+                "datastore/datastore",
+                "regions/main/Main",
+                "regions/left/Left",
+                "regions/details/Details"
+
+            ]
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

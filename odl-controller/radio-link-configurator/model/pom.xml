@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright (c) 2016 Ericsson, AB.  All rights reserved.
+
+ This program and the accompanying materials are made available
+ under the terms of the Eclipse Public License v1.0 which
+ accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html";
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <groupId>com.ericsson.vodafone.poc</groupId>
+    <artifactId>vodafonepoc-parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <relativePath>../../parent</relativePath>
+  </parent>
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.ericsson.radio.link.configurator</groupId>
+  <artifactId>radio-link-configurator-model</artifactId>
+  <packaging>bundle</packaging>
+  <version>2017.07.14.0.1-SNAPSHOT</version>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.opendaylight.mdsal</groupId>
+      <artifactId>yang-binding</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.opendaylight.mdsal.model</groupId>
+      <artifactId>ietf-yang-types-20130715</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.opendaylight.mdsal.model</groupId>
+      <artifactId>ietf-inet-types-2013-07-15</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.opendaylight.model</groupId>
+      <artifactId>ietf-network</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.opendaylight.model</groupId>
+      <artifactId>ietf-network-topology</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.opendaylight.mdsal.model</groupId>
+      <artifactId>ietf-interfaces</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.ericsson.dynamic.data.collector</groupId>
+      <artifactId>dynamic-data-collector-model</artifactId>
+    </dependency>
+  </dependencies>
+
+   <build>
+        <plugins>
+            <plugin>
+                <groupId>org.opendaylight.yangtools</groupId>
+                <artifactId>yang-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                        <configuration>
+                            <yangFilesRootDir>src/main/yang</yangFilesRootDir>
+                            <codeGenerators>
+                                <generator>
+                                    <codeGeneratorClass>
+                                        org.opendaylight.mdsal.binding.maven.api.gen.plugin.CodeGeneratorImpl
+                                    </codeGeneratorClass>
+                                    <outputBaseDir>
+                                        ${salGeneratorPath}
+                                    </outputBaseDir>
+                                </generator>
+                                <generator>
+                                    <codeGeneratorClass>org.opendaylight.mdsal.binding.yang.unified.doc.generator.maven.DocumentationGeneratorImpl</codeGeneratorClass>
+                                    <outputBaseDir>${project.build.directory}/site/models</outputBaseDir>
+                                </generator>
+                            </codeGenerators>
+                            <inspectDependencies>true</inspectDependencies>
+                        </configuration>
+                    </execution>
+                </executions>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>org.opendaylight.mdsal</groupId>
+                        <artifactId>maven-sal-api-gen-plugin</artifactId>
+                        <version>${mdsal.model.version}</version>
+                        <type>jar</type>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

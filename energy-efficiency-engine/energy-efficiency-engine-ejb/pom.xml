@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <artifactId>energy-efficiency-engine</artifactId>
+        <groupId>com.ericsson.vodafone.poc.energy-efficiency-engine</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>energy-efficiency-engine-ejb</artifactId>
+    <version>1.0-SNAPSHOT</version>    
+    <packaging>ejb</packaging>
+    <name>[${project.artifactId}] EJB module</name>
+
+    <properties>
+        <maven-ejb-plugin_version>3.1</maven-ejb-plugin_version>
+        <jboss-as-maven-plugin_version>7.9.Final</jboss-as-maven-plugin_version>
+    </properties>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ejb-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <ejbVersion>${maven-ejb-plugin_version}</ejbVersion>
+                    <archive>
+                        <manifestEntries>
+                            <Dependencies>org.slf4j</Dependencies>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+             <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <version>${jboss-as-maven-plugin_version}</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <!-- INIT Groovy tests -->
+            <plugin>
+                <groupId>org.codehaus.gmaven</groupId>
+                <artifactId>gmaven-plugin</artifactId>
+                <version>${version.gmaven-plugin}</version>
+                <configuration>
+                    <providerSelection>${version.gmaven-plugin.providerSelection}</providerSelection>
+                    <source />
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.gmaven.runtime</groupId>
+                        <artifactId>gmaven-runtime-2.0</artifactId>
+                        <version>${version.gmaven-runtime-2.0}</version>
+                        <exclusions>
+                            <exclusion>
+                                <groupId>org.codehaus.groovy</groupId>
+                                <artifactId>groovy-all</artifactId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-all</artifactId>
+                        <version>${version.groovy}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <!-- END Groovy tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <!-- INIT Groovy tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-test-directory</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>target</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/test/resources</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <useSystemClassLoader>true</useSystemClassLoader>
+                    <useManifestOnlyJar>false</useManifestOnlyJar>
+                    <useFile>false</useFile>
+                    <includes>
+                        <include>**/*Spec.java</include>
+                        <!-- <include>**/*Test.java</include> -->
+                        <!-- <include>**/*CDI.java</include> -->
+                    </includes>
+                </configuration>
+            </plugin>
+            <!-- END Groovy tests -->
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.3.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.ericsson.vodafone.poc.energy-efficiency-engine</groupId>
+            <artifactId>${project.parent.artifactId}-dm</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ericsson.vodafone.poc.energy-efficiency-engine</groupId>
+            <artifactId>${project.parent.artifactId}-odlPlugin</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ericsson.vodafone.poc.energy-efficiency-engine</groupId>
+            <artifactId>${project.parent.artifactId}-utils</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ericsson.vodafone.poc.predictor</groupId>
+            <artifactId>predictor-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>6.0</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>6.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- INIT Groovy tests -->
+        <!-- not used at the moment
+        <dependency>
+            <groupId>com.ericsson.cds</groupId>
+            <artifactId>cdi-test-support</artifactId>
+            <version>${version.cdi-test-support}</version>
+            <scope>test</scope>
+        </dependency>-->
+        <!-- END Groovy tests -->
+    </dependencies>
+</project>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="southbound-communication-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0">
+    <repository>mvn:org.opendaylight.yangtools/features-yangtools/${features.yangtools.version}/xml/features</repository>
+    <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/${mdsal.model.version}/xml/features</repository>
+    <repository>mvn:org.opendaylight.controller/features-mdsal/${mdsal.version}/xml/features</repository>
+    <repository>mvn:com.ericsson.model/features-ericsson-model/${features.ericsson.model.version}/xml/features</repository>
+    <repository>mvn:com.ericsson.snmp.agent/features-snmp-agent/${features.snmp.agent.version}/xml/features</repository>
+    <repository>mvn:com.ericsson.cli.plugin/features-cli-plugin/${features.cli.plugin.version}/xml/features</repository>
+
+    <feature name='southbound-communication' version='${project.version}' description="southbound communication">
+      <feature version="${features.ericsson.model.version}">ericsson-model</feature>
+      <feature version="${features.snmp.agent.version}">snmp-agent</feature>
+      <feature version="${features.cli.plugin.version}">cli-plugin</feature>
+      <bundle>mvn:com.ericsson.sb.communication/southbound-communication-impl/${com.ericsson.sb.communication.impl.version}</bundle>
+    </feature>
+</features>

@@ -1,0 +1,69 @@
+module interfaces-network-topology {
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:interfaces-network-topology";
+  prefix if-topo;
+
+  import yang-ext {
+    prefix "ext";
+    revision-date 2013-07-09;
+  }
+
+  import ietf-network {
+    prefix "nd";
+    revision-date 2016-11-16;
+  }
+
+  import ietf-network-topology {
+    prefix "lnk";
+    revision-date 2016-11-16;
+  }
+
+  import ietf-interfaces {
+    prefix "if";
+    revision-date "2014-05-08";
+  }
+
+  description "Augment the ietf-interfaces IETF YANG model with
+    references to topology termination points.";
+ 
+  organization
+    "Ericsson - Via Melen 77 Genova (GE) 16152 Italy";
+
+  revision 2017-07-14 {
+    description "Initial revision";
+  }
+  
+  grouping network-ref {
+    uses nd:network-ref;
+  }
+ 
+  grouping node-ref {
+    uses nd:node-ref;
+  }
+
+  grouping interfaces-attributes-augment {
+    uses nd:node-ref;
+    leaf tp-ref {
+      type leafref {
+        path "/nd:networks/nd:network[nd:network-id=current()/../"+
+          "network-ref]/nd:node[nd:node-id=current()/../"+
+          "node-ref]/lnk:termination-point/lnk:tp-id";
+           require-instance true;
+      }
+      description
+          "A type for an absolute reference to a termination point.
+          (This type should not be used for relative references.
+          In such a case, a relative path should be used instead.)";
+      }
+    }
+
+  augment "/if:interfaces/if:interface" {
+      description
+        "Introduce reference to termination point housed into ietf-network-topology
+        instance.";
+
+      ext:augment-identifier "if-ref-tp-ref";
+
+      uses interfaces-attributes-augment;
+  } 
+}

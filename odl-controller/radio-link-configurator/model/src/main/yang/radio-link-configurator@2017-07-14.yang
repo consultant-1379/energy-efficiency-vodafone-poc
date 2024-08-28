@@ -1,0 +1,57 @@
+module radio-link-configurator {
+
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:radio-link-configurator";
+  prefix rlc;
+
+  import ietf-yang-types {
+    prefix yang;
+    revision-date "2013-07-15";
+  }
+
+  import ietf-network {
+    prefix "nd";
+    revision-date "2016-11-16";
+  }
+
+  import ietf-interfaces {
+    prefix "if";
+    revision-date "2014-05-08";
+  }
+
+  description "Update radio link configuration in terms of bandwidth and LAG links membership";
+
+  organization
+    "Ericsson - Via Melen 77 Genova (GE) 16152 Italy";
+
+  revision 2017-07-14 {
+    description "Initial revision";
+  }
+
+  rpc set-interface-capacity {
+    description "Configure the interface tx bandwidth.";
+
+    input {
+      uses nd:network-ref;
+
+      leaf if-ref {
+        description
+          "Interface reference which univoquely determines the interface instance across the topology
+          of a network.";
+          type if:interface-ref;
+      }
+
+      leaf bandwidth-capacity {
+        description "Required interface capacity in bytes/s";
+        type yang:counter64;
+      }
+    }
+
+    output {
+      leaf result-ok {
+        description "Rpc operation result";
+        type boolean;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "input" : {
+    "network-ref" : network-ref-field,
+    "if-ref" : if-ref-field,
+    "collection-interval" : collection-interval-field,
+    "monitoring-enable" : monitoring-enable-field,
+    "history-length" : history-length-field
+  }
+}

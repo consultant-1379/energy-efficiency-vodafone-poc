@@ -1,0 +1,79 @@
+module l2-topology-lag {
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:l2-topology-lag";
+  prefix "nt-if";
+
+  import ietf-inet-types {
+    prefix inet;
+    revision-date 2013-07-15;
+  }
+ 
+  import ietf-network {
+    prefix "nd";
+    revision-date 2016-11-16;
+  }
+ 
+  import ietf-network-topology {
+    prefix "lnk";
+    revision-date 2016-11-16;
+  }
+
+   import ietf-l2-topology {
+     prefix "l2t";
+     revision-date 2016-07-07;
+   }
+
+   description "Augment the ietf-network-topology IETF YANG model with
+     LAG entities.";
+ 
+   organization
+     "Ericsson - Via Melen 77 Genova (GE) 16152 Italy";
+
+   revision 2017-07-14 {
+     description "Initial revision.";
+   }
+
+   grouping network-ref {
+     uses nd:network-ref;
+   }
+
+   grouping member-link {
+      list member-link {
+        key "link-id";
+        uses network-ref;
+        leaf link-id{
+          type leafref {
+            path "/nd:networks/nd:network[nd:network-id=current()/../"+
+              "network-ref]/lnk:link/lnk:link-id";
+          }
+        }
+        leaf master {
+          description "To indicate if the present link is LAG master link.";
+          type boolean;
+        }
+      }
+    }
+
+    grouping lag-config {
+      container lag-config {
+        leaf lag-id {
+          type inet:uri;
+        }
+        uses member-link;
+      }
+   }
+
+   augment "/nd:networks/nd:network/lnk:link/l2t:l2-link-attributes" {
+     uses lag-config;
+   }
+ 
+   augment "/nd:networks/nd:network/lnk:link/l2t:l2-link-attributes" {
+     uses network-ref;
+     leaf lag-id-ref {
+       type leafref {
+         path "/nd:networks/nd:network[nd:network-id=current()/../"+
+           "network-ref]/lnk:link/l2t:l2-link-attributes/lag-config/lag-id";
+       }
+     }
+   }
+}

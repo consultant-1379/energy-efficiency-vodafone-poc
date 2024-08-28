@@ -1,0 +1,56 @@
+module vpn-service-poc {
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:vpn-service-poc";
+  prefix vpn-poc;
+
+  import ietf-inet-types {
+     prefix inet;
+     revision-date 2013-07-15;
+   }
+
+  import ietf-network-topology {
+    prefix lnk;
+    revision-date 2016-11-16;
+  }
+
+  import ietf-l2-topology {
+    prefix l2t;
+    revision-date "2016-07-07";
+  }
+
+  description "Specification of vpn service entities based on l2vpn e-line configuration.";
+
+  organization "Ericsson - Via Melen 77 Genova (GE) 16152 Italy";
+
+  revision 2017-07-14 {
+    description "Initial revision";
+  }
+
+  grouping e-line-info {
+      leaf e-line-id {
+        type inet:uri;
+      }
+      leaf s-vid {
+        type l2t:vlan;
+      }
+      leaf c-vid {
+        type l2t:vlan;
+      }
+      list link-path {
+        key index;
+        leaf index {
+          type uint32;
+        }
+        leaf link-id {
+          type lnk:link-id;
+        }
+    }
+  }
+
+  container e-lines {
+    list e-line {
+      key e-line-id;
+      uses e-line-info;
+    }
+  }
+}

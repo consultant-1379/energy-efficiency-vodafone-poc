@@ -1,0 +1,103 @@
+module topology-inventory {
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:topology-inventory";
+  prefix inv-topo;
+
+  import yang-ext {
+    prefix "ext";
+    revision-date 2013-07-09;
+  }
+
+  import ietf-network {
+    prefix nd;
+    revision-date 2016-11-16;
+  }
+
+  description "Specification of inventory data to be included in topology.";
+
+  organization "Ericsson - Via Melen 77 Genova (GE) 16152 Italy";
+
+  revision 2017-07-14 {
+    description "Initial revision";
+  }
+
+  identity product-family-base {
+
+  }
+
+  identity product-name-base {
+
+  }
+
+  identity MINI-LINK {
+    base product-family-base;
+  }
+
+  identity MINI-LINK-6691 {
+     base product-name-base;
+  }
+
+  identity MINI-LINK-6351 {
+     base product-name-base;
+  }
+
+  identity MINI-LINK-6352 {
+     base product-name-base;
+  }
+
+  augment "/nd:networks/nd:network/nd:node" {
+      ext:augment-identifier "inventory-node";
+
+      leaf inventory-name {
+        description
+          "Introduces the name of the node at inventory side.";
+        type string;
+      }
+
+      leaf manufacturer {
+        description
+          "Introduces the manufacturer name, for example Ericsson.";
+        type string;
+      }
+
+      leaf product-family {
+        description
+          "Introduces the product family, for example: mini-link.";
+        type identityref {
+	    base product-family-base;
+        }
+      }
+
+      leaf product-name {
+        description
+          "Introduces the product name, for example: mini-link-6691.";
+        type identityref {
+           base product-name-base;
+        }
+      }
+
+      leaf snmp-read-community {
+        description
+          "SNMP read community (for example: Ericsson_r, public).";
+        type string;
+      }
+
+      leaf snmp-write-community {
+        description
+          "SNMP write community (for example: Ericsson_w, private).";
+        type string;
+      }
+
+      leaf cli-user-login {
+        description
+          "CLI user login string (for example: admin).";
+        type string;
+      }
+
+      leaf cli-password-login {
+        description
+          "CLI password login string (for example: Ericsson1).";
+        type string;
+      }
+   }
+}

@@ -1,0 +1,26 @@
+Sent get request to 10.44.107.239 : 161
+xfChannelGroupTable
+cgIfIndex.2134646913.2:-->2134646913
+cgIfIndex.2134646913.3:-->2134646913
+cgIfIndex.2134646914.2:-->2134646914
+cgIfIndex.2134646914.3:-->2134646914
+cgIfIndex.2134647169.2:-->2134647169
+cgIfIndex.2134647169.3:-->2134647169
+cgIfIndex.2134647170.2:-->2134647170
+cgIfIndex.2134647170.3:-->2134647170
+cgTypeIndex.2134646913.2:-->bonding(2)
+cgTypeIndex.2134646913.3:-->rlp(3)
+cgTypeIndex.2134646914.2:-->bonding(2)
+cgTypeIndex.2134646914.3:-->rlp(3)
+cgTypeIndex.2134647169.2:-->bonding(2)
+cgTypeIndex.2134647169.3:-->rlp(3)
+cgTypeIndex.2134647170.2:-->bonding(2)
+cgTypeIndex.2134647170.3:-->rlp(3)
+xfIfStatus.2134646913.2:-->ready(2)
+xfIfStatus.2134646913.3:-->notReady(3)
+xfIfStatus.2134646914.2:-->ready(2)
+xfIfStatus.2134646914.3:-->notReady(3)
+xfIfStatus.2134647169.2:-->ready(2)
+xfIfStatus.2134647169.3:-->notReady(3)
+xfIfStatus.2134647170.2:-->ready(2)
+xfIfStatus.2134647170.3:-->notReady(3)

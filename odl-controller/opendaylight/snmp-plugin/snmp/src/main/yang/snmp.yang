@@ -1,0 +1,201 @@
+/*
+ * Copyright (c) 2014-2015 Cisco Systems, Inc. and others.  All rights reserved.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License v1.0 which accompanies this distribution,
+ * and is available at http://www.eclipse.org/legal/epl-v10.html
+ */
+module snmp {
+    yang-version 1;
+
+    namespace "urn:opendaylight:snmp";
+    prefix snmp;
+    import ietf-inet-types {
+        prefix inet;
+        revision-date 2013-07-15;
+    }
+    import IF-MIB {
+        prefix if-mib;
+    }
+
+    revision "2014-09-22" {
+        description "Initial revision of cmts snmp model";
+    }
+
+    identity base-value-type {
+      description
+        "Describe the value type for SNMP variable binding purposes.";
+    }
+
+    identity value-type-string {
+      base base-value-type;
+      description
+        "Specifies the SNMP string variable type.";
+    }
+
+    identity value-type-hex-string {
+      base base-value-type;
+      description
+        "Specifies the SNMP HEX string variable type (can be used for bit-masks such as PortList).";
+    }
+
+    identity value-type-int32 {
+      base base-value-type;
+      description
+        "Specifies the SNMP integer32 variable type.";
+    }
+
+    identity value-type-uint32 {
+      base base-value-type;
+      description
+        "Specifies the SNMP unsigned integer32 variable type.";
+    }
+
+    identity value-type-counter64 {
+      base base-value-type;
+      description
+        "Specifies the SNMP counter64 variable type.";
+    }
+
+    identity value-type-gauge32 {
+      base base-value-type;
+      description
+        "Specifies the SNMP gauge32 variable type.";
+    }
+
+    identity value-type-ip-address {
+      base base-value-type;
+      description
+        "Specifies the IP address variable type.";
+    }
+
+    typedef snmp-get-type {
+        type enumeration {
+            enum GET {
+                value "1";
+            }
+            enum GET-BULK {
+                value "2";
+            }
+            enum GET-NEXT {
+                value "3";
+            }
+            enum GET-WALK {
+                value "4";
+            }
+        }
+    }
+
+    rpc snmp-get {
+        description "Sends an SNMP get to the specified address";
+        input {
+            leaf ip-address {
+                type inet:ipv4-address;
+            }
+
+            leaf oid {
+                type string;
+            }
+
+            leaf get-type {
+                type snmp-get-type;
+            }
+
+            leaf community {
+                type string;
+            }
+        }
+
+        output {
+            list results {
+                leaf oid {
+                    type string;
+                }
+
+                leaf value {
+                    type string;
+                }
+            }
+        }
+    }
+
+    rpc snmp-set {
+        description "Sends an SNMP get to the specified address";
+        input {
+            leaf ip-address {
+                type inet:ipv4-address;
+            }
+
+            leaf oid {
+                type string;
+            }
+
+            leaf community {
+                type string;
+            }
+
+            leaf value-type {
+                type identityref {
+                base base-value-type;
+              }
+            }
+
+            leaf value {
+                type string;
+            }
+        }
+    }
+
+    rpc get-interfaces {
+        input {
+            leaf ip-address {
+                type inet:ipv4-address;
+            }
+
+            leaf community {
+                type string;
+            }
+        }
+
+        output {
+            uses if-mib:interfaces-group;
+        }
+    }
+
+    rpc get-node-properties {
+        input {
+            leaf ip-address {
+                type inet:ipv4-address;
+            }
+
+            leaf community {
+                type string;
+            }
+
+        }
+
+        output {
+            leaf serial-number {
+                type string;
+            }
+
+            leaf platform-id {
+                 type string;
+            }
+
+            leaf image-name {
+                type string;
+            }
+
+            leaf name {
+                 type string;
+            }
+
+            leaf vendor {
+                 type string;
+            }
+
+        }
+    }
+
+}

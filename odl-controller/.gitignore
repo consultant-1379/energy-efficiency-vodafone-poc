@@ -1,0 +1,41 @@
+# Compiled source #
+*.class
+*bin/*
+
+# Eclipse files
+.project
+.classpath
+.settings
+
+#Intellij Files
+*.iml
+.idea
+
+# Packages
+*.jar
+
+# Maven build files
+target
+reports
+target-ide
+.settings
+yang-gen-config
+yang-gen-sal
+
+# ARQ tests
+arq-perf
+
+# PMD
+.pmd
+
+# Merge files
+*.orig
+*.versionsBackup
+
+# jboss files
+transaction.log
+
+# python
+.pydevproject
+
+*.*~

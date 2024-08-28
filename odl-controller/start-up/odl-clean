@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+rm -rf ./karaf/target/assembly/data/*
+rm -rf ./karaf/target/assembly/journal/*
+rm -rf ./karaf/target/assembly/snapshots/*

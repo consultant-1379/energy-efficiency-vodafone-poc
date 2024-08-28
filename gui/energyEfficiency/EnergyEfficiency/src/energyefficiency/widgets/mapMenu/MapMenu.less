@@ -1,0 +1,101 @@
+.eaEnergyEfficiency-wMapMenu {
+
+    &-buttonDiv {
+        position: relative;
+        clear: both;
+        float: right;
+        padding: 0 0 0.5rem 0;
+    }
+
+    &-buttonDiv &-menubutton {
+        min-width: 0;
+    }
+
+    &-main-menu {
+        position: relative;
+        float: left;
+        clear: both;
+        display: none;
+        background: white;
+    }
+
+    &-submenu {
+        position: relative;
+        float: left;
+        clear: both;
+        display: none;
+        background: white;
+    }
+
+    &-menu-item, &-cancel, &-step_active &-step-button {
+        cursor: pointer;
+        line-height: 1.0rem;
+        font-size: 1.0rem;
+        font-weight: bold;
+        color: #0000ff;
+        width: 100%;
+        opacity: 0.7;
+
+        &:hover {
+            opacity: 1.0;
+        }
+
+        &:active {
+            opacity: 0.4;
+        }
+
+    }
+
+    &-menu-item, &-cancel, &-step_active {
+        padding: 0.3rem 0;
+    }
+
+    &-step-button {
+        padding: 0.6rem 0 0.3rem 0;
+    }
+
+    &-cancel {
+        text-align: right;
+    }
+
+    &-submenu-title {
+        line-height: 1.0rem;
+        font-size: 1.0rem;
+        padding: 0.3rem 0;
+        font-weight: bold;
+        color: #333333;
+    }
+
+    &-submenu-body {
+        line-height: 1.0rem;
+        font-size: 1.0rem;
+        padding: 0.3rem 0;
+        color: #333333;
+        width: 100%;
+    }
+
+    &-main-menu_open {
+        display: block;
+    }
+
+    &-submenu_open {
+        display: block;
+    }
+
+    &-step {
+        color: #888888;
+        padding: 0.2rem 0;
+    }
+
+    &-step_active {
+        color: #333333;
+    }
+
+    &-step-title {
+        width: 100%;
+        line-height: 1.0rem;
+        font-size: 1.0rem;
+        padding: 0.3rem 0;
+        font-weight: bold;
+    }
+}

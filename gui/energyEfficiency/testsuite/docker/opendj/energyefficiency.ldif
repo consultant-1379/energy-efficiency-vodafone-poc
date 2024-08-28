@@ -1,0 +1,145 @@
+
+dn: uid=operator,ou=People,dc=vts,dc=com
+uid: operator
+cn: NetEx
+sn: Operator
+userType: enmUser
+userPassword: TestPassw0rd
+ds-pwp-account-disabled: false
+objectClass: person
+objectClass: userTypeOC
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+
+dn: uid=administrator,ou=People,dc=vts,dc=com
+uid: administrator
+cn: John
+sn: Smith
+userType: enmUser
+userPassword: TestPassw0rd
+ds-pwp-account-disabled: false
+objectClass: person
+objectClass: userTypeOC
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+
+dn: uid=Network_Explorer_Operator_User,ou=People,dc=vts,dc=com
+uid: Network_Explorer_Operator_User
+userType: enmUser
+cn: Network_Explorer_Operator_User
+sn: Network_Explorer_Operator_User
+userPassword: TestPassw0rd
+ds-pwp-account-disabled: false
+objectClass: person
+objectClass: userTypeOC
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+
+dn: uid=Network_Explorer_Administrator_User,ou=People,dc=vts,dc=com
+uid: Network_Explorer_Administrator_User
+userType: enmUser
+cn: Network_Explorer_Administrator_User
+sn: Network_Explorer_Administrator_User
+userPassword: TestPassw0rd
+ds-pwp-account-disabled: false
+objectClass: person
+objectClass: userTypeOC
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+
+dn: uid=user_with_no_role,ou=People,dc=vts,dc=com
+uid: user_with_no_role
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+objectClass: userTypeOC
+userType: enmUser
+cn: user_with_no_role
+sn: user_with_no_role
+userPassword: user
+
+dn: uid=User1,ou=People,dc=vts,dc=com
+uid: User1
+cn: User
+sn: Test
+userType: enmUser
+userPassword: TestPassw0rd
+ds-pwp-account-disabled: false
+objectClass: person
+objectClass: userTypeOC
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+
+dn: uid=usr1,ou=People,dc=vts,dc=com
+uid: usr1
+cn: User
+sn: Test
+userType: enmUser
+userPassword: TestPassw0rd
+ds-pwp-account-disabled: false
+objectClass: person
+objectClass: userTypeOC
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+
+# Roles
+# ------------------------------------------------------------------------------
+
+dn: cn=Network_Explorer_Operator,ou=Roles,dc=vts,dc=com
+cn: Network_Explorer_Operator
+objectClass: groupOfUniqueNames
+objectClass: top
+objectClass: enmRole
+description: Network_Explorer_Operator role
+
+dn: cn=Network_Explorer_Administrator,ou=Roles,dc=vts,dc=com
+cn: Network_Explorer_Administrator
+objectClass: groupOfUniqueNames
+objectClass: top
+objectClass: enmRole
+description: Network_Explorer_Administrator role
+
+# Roles Assignment
+# ------------------------------------------------------------------------------
+dn: cn=Network_Explorer_Operator,ou=Roles,dc=vts,dc=com
+changetype: modify
+add:uniquemember
+uniquemember: uid=Network_Explorer_Operator_User,ou=People,dc=vts,dc=com
+
+dn: cn=Network_Explorer_Administrator,ou=Roles,dc=vts,dc=com
+changetype: modify
+add:uniquemember
+uniquemember: uid=Network_Explorer_Administrator_User,ou=People,dc=vts,dc=com
+
+dn: cn=ADMINISTRATOR,ou=Roles,dc=vts,dc=com
+changetype: modify
+add: uniqueMember
+uniqueMember: uid=administrator,ou=People,dc=vts,dc=com
+
+dn: cn=Network_Explorer_Administrator,ou=Roles,dc=vts,dc=com
+changetype: modify
+add:uniquemember
+uniquemember: uid=administrator,ou=People,dc=vts,dc=com
+
+dn: cn=ADMINISTRATOR,ou=Roles,dc=vts,dc=com
+changetype: modify
+add: uniqueMember
+uniqueMember: uid=User1,ou=People,dc=vts,dc=com
+
+dn: cn=ADMINISTRATOR,ou=Roles,dc=vts,dc=com
+changetype: modify
+add: uniqueMember
+uniqueMember: uid=usr1,ou=People,dc=vts,dc=com
+
+dn: cn=OPERATOR,ou=Roles,dc=vts,dc=com
+changetype: modify
+add: uniqueMember
+uniqueMember: uid=operator,ou=People,dc=vts,dc=com
+

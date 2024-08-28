@@ -1,0 +1,140 @@
+.eaEnergyEfficiency {
+
+    &-Details {
+        height: 100%;
+        overflow: auto;
+
+        &-SectionHeading {
+            position: relative;
+            display: inline-block;
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        &-infoMessage {
+            position: relative;
+            clear: both;
+            padding-top: 5px;
+
+            &_hidden {
+                display: none;
+            }
+
+            &Header {
+                padding-left: 10px;
+                font-size: 1.9rem;
+            }
+
+            &Paragraph {
+                padding-left: 48px;
+                word-wrap: break-word;
+            }
+        }
+
+        &-Content {
+            width: 100%;
+            height: 94%;
+
+            &-block {
+                text-align: center;
+                vertical-align: middle;
+                width: 100%;
+
+                &-first {
+                    height: 43%;
+
+                    &-header {
+                        font-size: 13px;
+                        font-weight: normal;
+                    }
+                }
+
+                &-second {
+                    //height: 50%;
+
+                    height: 97%;
+                    &-container {
+                        height: 53%;
+                        width: 87%;
+                    }
+
+                    &-header {
+                        font-size: 13px;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+    }
+
+    &-narrowView {
+        display: none;
+    }
+
+    &-fullView {
+        display: block;
+    }
+
+    @media screen and (max-width: 959px) and (min-width: 800px) {
+        &-narrowView {
+            display: block;
+        }
+        &-fullView {
+            display: none;
+        }
+
+        &-Details-Content-block-first {
+            height: 40%;
+        }
+        //&-Details-Content-block-second {
+        //    width: 50%;
+        //    height: 58%;
+        //}
+        &-Details-Content-block-second-container {
+            width: 35%;
+            height: 54%;
+        }
+    }
+
+    @media screen and (max-width: 799px) and (min-width: 650px) {
+        &-searchBtn {
+            min-width: 40px;
+        }
+        &-searchBtnSpan {
+            display: none;
+        }
+
+        &-Details-Content-block-first {
+            height: 35%;
+        }
+        //&-Details-Content-block-second {
+        //    width: 85%;
+        //    height: 62%;
+        //}
+        &-Details-Content-block-second-container {
+            width: 40%;
+            height: 55%;
+        }
+    }
+
+    @media screen and (max-width: 649px) and (min-width: 450px) {
+        &-searchBtn {
+            min-width: 40px;
+        }
+        &-searchBtnSpan {
+            display: none;
+        }
+
+        &-Details-Content-block-first {
+            height: 35%;
+        }
+        //&-Details-Content-block-second {
+        //    width: 85%;
+        //    height: 62%;
+        //}
+        &-Details-Content-block-second-container {
+            width: 48%;
+            height: 55%;
+        }
+    }
+}

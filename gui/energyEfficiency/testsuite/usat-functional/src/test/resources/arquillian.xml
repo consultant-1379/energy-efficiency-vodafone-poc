@@ -1,0 +1,13 @@
+<arquillian>
+
+    <extension qualifier="graphene">
+        <property name="url">${app.url}</property>
+        <property name="waitGuiInterval">15</property>
+    </extension>
+
+    <extension qualifier="webdriver">
+        <property name="browser">${browser.name}</property>
+        <property name="dimensions">full</property>
+    </extension>
+
+</arquillian>

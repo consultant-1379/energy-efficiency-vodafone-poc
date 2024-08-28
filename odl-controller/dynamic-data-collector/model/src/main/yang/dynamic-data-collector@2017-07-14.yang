@@ -1,0 +1,246 @@
+module dynamic-data-collector {
+
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:dynamic-data-collector";
+  prefix ddc;
+
+  import ietf-yang-types {
+    prefix yang;
+    revision-date "2013-07-15";
+  }
+
+  import ietf-network {
+    prefix "nd";
+    revision-date "2016-11-16";
+  }
+
+  import ietf-network-topology {
+    prefix "lnk";
+    revision-date "2016-11-16";
+  }
+
+  import ietf-interfaces {
+    prefix "if";
+    revision-date "2014-05-08";
+  }
+
+  description "Provides additional interfaces in terms of RPC to the ietf-l2-topology
+    to support bandwidth monitoring and set-up.";
+
+  organization
+    "Ericsson - Via Melen 77 Genova (GE) 16152 Italy";
+
+  revision 2017-07-14 {
+    description "Initial revision";
+  }
+
+  grouping time-coordinates {
+      leaf time-interval {
+        description "Incremental time interval index.";
+        type uint32;
+      }
+ 
+      leaf timestamp {
+          description "Sample timestamp as for example: 2016-11-25T16:27:08.291+01:00";
+          type yang:date-and-time;
+      }
+  }
+
+  container historical-data {
+    list history {
+      key if-ref;
+      leaf if-ref {
+        type if:interface-ref;
+      }
+
+      list collected-data {
+        key index;
+
+        leaf index {
+          description "Index to limit the number of stored record and cycle in overlapping mode";
+          type uint32 {
+            range "0..15";
+          }
+        }
+
+        uses time-coordinates;
+
+        leaf tx-traffic-rate {
+          type yang:counter64;
+        }
+
+        leaf current-bandwidth-capacity {
+          description "Interface current bandwidth capacity in bytes/s as observed in the current collection interval.";
+          type yang:counter64;
+        }
+
+        leaf request-date-and-time{
+          description "Sample timestamp as for example: 2016-11-25T16:27:08.291+01:00";
+          type yang:date-and-time;
+      }
+
+
+        leaf required-bandwidth-capacity {
+            description "Interface last required bandwidth capacity in bytes/s as valid for the current collection interval.";
+            type yang:counter64;
+        }
+
+        leaf current-output-power {
+          description "The current interface output (tx) transmit power in microWatt.";
+          type int32;
+        }
+
+        leaf nominal-output-power {
+          description "The nominal interface output (tx) transmit power in microWatt.";
+          type int32;
+        }
+
+        leaf oper-status {
+           description "The interface oper status.";
+           type string;
+        }
+      }
+    }
+  }
+
+  grouping interface-list {
+    container interfaces {
+      uses nd:network-ref;
+
+      list interface-list {
+        key if-ref;
+        leaf if-ref {
+          type if:interface-ref;
+        }
+
+        leaf maximum-bandwidth-capacity {
+          description "Interface maximum bandwidth capacity in bytes/s.";
+          type yang:counter64;
+        }
+
+        leaf current-bandwidth-capacity {
+          description "Interface current bandwidth capacity in bytes/s.";
+          type yang:counter64;
+        }
+      }
+    }
+  }
+
+  rpc get-interface-list {
+    description "List all interfaces housed into the specified network.";
+
+    input {
+      choice owner {
+        case network {
+          leaf all-interfaces {
+            description "Specifies that all known interfaces in network topologies are returned back";
+            type empty;
+          }
+        }
+
+        case link {
+          leaf link-id {
+            description "Specifies that the interfaces related to the specified link
+              identifier are returned back.";
+            type lnk:link-id;
+          }
+        }
+      }
+    }
+
+    output {
+      uses interface-list;
+
+      leaf result-ok {
+        description "Rpc operation result.";
+        type boolean;
+      }
+    }
+  }
+
+  rpc set-interface-rate-monitoring {
+    description "Enable or disable link rate monitoring. It keeps a short data history
+      for debug purposes only.";
+
+    input {
+      uses nd:network-ref;
+
+      leaf if-ref {
+        description
+          "Introduces the reference to the termination point housed into ietf-interface instance.";
+           type if:interface-ref;
+      }
+
+      leaf collection-interval {
+        type uint32;
+        description "Traffic counters collection time interval in seconds.";
+      }
+
+      leaf monitoring-enable {
+        description "Flag to indicate monitoring enable state.";
+        type boolean;
+      }
+
+      leaf history-length {
+        description "Monitored traffic counters values history records length.";
+        type uint32 {
+          range "1..16";
+        }
+      }
+    }
+
+    output {
+      leaf result-ok {
+        description "Rpc operation result.";
+        type boolean;
+      }
+    }
+  }
+
+  rpc get-interface-monitored-data {
+
+    description "Read the interface current monitored traffic data comprising rate, capacity and output-power
+            interface data.";
+
+    input {
+      uses nd:network-ref;
+
+      leaf if-ref {
+        description
+          "Introduces the reference to the termination point housed into ietf-interface instance.";
+           type if:interface-ref;
+      }
+    }
+
+    output {
+      uses time-coordinates;
+
+      leaf tx-traffic-rate {
+        description "Interface monitored traffic rate in bytes/s as observed for the current collection interval";
+        type yang:counter64;
+      }
+
+      leaf current-bandwidth-capacity {
+        description "Interface current bandwidth capacity in bytes/s as valid for the current collection interval.";
+        type yang:counter64;
+      }
+
+      leaf current-output-power {
+        description "The current interface tx transmit power in microWatt. The tx transmit power may change
+          as a result of current capacity updates.";
+        type int32;
+      }
+
+      leaf nominal-output-power {
+        description "The nominal interface tx transmit power in microWatt. The interface was originally
+          configured to have such transmit power.";
+        type int32;
+      }
+
+      leaf result-ok {
+        description "Rpc operation result.";
+        type boolean;
+      }
+    }
+  }
+}

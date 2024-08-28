@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="odl-ietf-model-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0">
+    <repository>mvn:org.opendaylight.yangtools/features-yangtools/${features.yangtools.version}/xml/features</repository>
+    <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/${mdsal.model.version}/xml/features</repository>
+    <repository>mvn:org.opendaylight.controller/features-mdsal/${mdsal.version}/xml/features</repository>
+ 
+    <feature name='odl-ietf-model' version='${project.version}' description="ietf model">
+        <feature version="${mdsal.model.version}">odl-mdsal-models</feature>
+        <bundle>mvn:org.opendaylight.model/ietf-te-types/${ietf.te.types.version}</bundle>
+        <bundle>mvn:org.opendaylight.model/ietf-te/${ietf.te.version}</bundle>
+        <bundle>mvn:org.opendaylight.model/ietf-network/${ietf.network.version}</bundle>
+        <bundle>mvn:org.opendaylight.model/ietf-network-topology/${ietf.network.topology.version}</bundle>
+        <bundle>mvn:org.opendaylight.model/ietf-te-topology/${ietf.te.topology.version}</bundle>
+        <bundle>mvn:org.opendaylight.model/ietf-l2-topology/${ietf.l2.topology.version}</bundle>
+    </feature>
+</features>

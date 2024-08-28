@@ -1,0 +1,277 @@
+module snmp-agent {
+
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:snmp-agent";
+  prefix snag;
+
+  import ietf-inet-types {
+    prefix "inet";
+    revision-date 2013-07-15;
+  }
+
+  import ietf-interfaces {
+    prefix "if";
+    revision-date 2014-05-08;
+  }
+
+  import snmp {
+    prefix "snmp";
+    revision-date 2014-09-22;
+  }
+
+  description "Provides SNMP southbound interface to interact with nodes remote SNMP agents,
+    in terms of get and set SNMP operations.";
+
+  organization
+    "Ericsson - Via Melen 77 Genova (GE) 16152 Italy";
+
+  revision 2017-07-14 {
+    description "Initial revision";
+  }
+
+  container if-ref-table {
+    list if-entry {
+      key if-ref;
+
+      leaf if-ref {
+        type string;
+        description "A textual identifier of the interface which is univoque
+          overall the network topology it is housed in. An implementation may
+          capture network node identification within such string.";
+      }
+
+      leaf if-name {
+        type string;
+        description "A textual name of the interface. The value of this
+          object should be the name of the interface as assigned
+          by the local device and should be suitable for use in
+          commands entered at the device's `console'. This
+          might be a text name, such as `le0' or a simple port
+          number, such as `1', depending on the interface naming
+          syntax of the device. If several entries in the
+          ifTable together represent a single interface as named
+          by the device, then each will have the same value of
+          ifName. If there is no local name, or this object is
+          otherwise not applicable, then this object contains a
+          0-length string.";
+      }
+
+      leaf if-index {
+        type uint32;
+        description "A unique value for each interface. Its value
+          ranges between 1 and the value of ifNumber. The
+          value for each interface must remain constant at
+          least from one re-initialization of the entity's
+          network management system to the next re-initialization.";
+      }
+
+      leaf lower-if-index {
+        type uint32;
+        description "Lower ifIndex as determined by ifStackTable.";
+      }
+
+      leaf lower-if-index-2 {
+        type uint32;
+        description "Optional second lower ifIndex as determined by ifStackTable.";
+      }
+
+      leaf if-descr {
+       type string;
+       description "A textual string containing information about the
+         interface. This string should include the name of the
+         manufacturer, the product name and the version of the
+         interface hardware/software.";
+      }
+
+      leaf if-li-ent-logical-index {
+        type uint32;
+        description "The value of this object uniquely identifies the logical
+          entity: RLT (Radio Link Terminal) and CT (Carrier Termination).
+          The logical entity identified by liEntLogicalIndex is the same
+          interface as identified by the same value of entLogicalIndex;
+          reference: XF-RADIOLINK-RLT-MIB.";
+      }
+
+      leaf if-radio-frame-id {
+        type uint32;
+        description "It represents the selected Radio Frame ID. It maps to the 
+          xfCarrierTermRadioFrameId objtect-type available within the xfCarrierTerminationTable.
+          reference: XF-RADIOLINK-RLT-MIB.";
+      }
+
+      leaf bridge-port-id {
+        type uint16;
+        description "It represents the bridge port identifier 1..N.
+          reference: xfEthernetIfXTable, xfEthernetIfUsage.";
+      }
+    }
+  }
+
+  container if-index-table {
+    list if-index-entry {
+      key "node-id if-index";
+      leaf node-id {
+        type string;
+      }
+
+      leaf if-index {
+        type uint32;
+        description "A unique value for each interface. Its value
+          ranges between 1 and the value of ifNumber. The
+          value for each interface must remain constant at
+          least from one re-initialization of the entity's
+          network management system to the next re-initialization.";
+      }
+
+      leaf if-ref {
+        type string;
+        description "A textual identifier of the interface which is univoque
+          overall the network topology it is housed in. An implementation may
+          capture network node identification within such string.";
+      }
+    }
+  }
+
+  container if-stack-table {
+    list if-stack-entry {
+      key if-ref;
+
+      leaf if-ref {
+        type string;
+          description "A textual identifier of the interface which is univoque
+            overall the network topology it is housed in. An implementation may
+            capture network node identification within such string.";
+      }
+
+      leaf-list if-ref-stack {
+        type string;
+          description "List of the if-ref lowered stacked with respect the key if-ref.";
+      }
+
+     leaf-list if-ref-stack-2 {
+        type string;
+          description "Second list (optional) of the if-ref lowered stacked with respect the key if-ref.";
+      }
+    }
+  }
+
+  container mib-object-oid {
+    list object-list {
+      key "mib-name object-type";
+
+      leaf mib-name {
+        description "SNMP MIB name";
+        type string;
+      }
+
+      leaf object-type {
+        description "SNMP Object type";
+        type string;
+      }
+
+      leaf oid {
+        description "SNMP Object Id";
+        type string;
+      }
+
+      leaf logical-index-required {
+        description "indicates if the if-li-ent-logical-index must be used in place of the if-index
+          in SNMP interface based operations.";
+        type boolean;
+        default false;
+      }
+
+      leaf radio-frame-id-required {
+        description "indicates if the radio-frame-id must be concatenated to the oid prefix
+          in SNMP interface based operations.";
+        type boolean;
+        default false;
+      }
+    }
+  }
+
+  rpc set-interface-value {
+
+    description "Write interface associated value as specified by the mib name and object type.";
+
+    input {
+      leaf node-ip-address {
+        description
+          "Network node remote SNMP Agent IP address.";
+        type inet:ip-address;
+      }
+
+      leaf if-ref {
+        description
+          "Interface reference. Implementation captures both node-id and local interface-name.";
+        type if:interface-ref;
+      }
+
+      leaf mib-name {
+        description "SNMP MIB name";
+        type string;
+      }
+
+      leaf object-type {
+        description "SNMP Object type";
+        type string;
+      }
+
+      leaf value-type {
+        type identityref {
+          base snmp:base-value-type;
+        }
+      }
+
+      leaf value {
+        description "String representation of the value to set.";
+        type string;
+      }
+    }
+
+    output {
+      leaf result-ok {
+         type boolean;
+      }
+    }
+  }
+
+  rpc get-interface-value {
+
+    description "Read interface associated value as specified by the mib name and object type.";
+
+    input {
+      leaf node-ip-address {
+        description
+          "Network node remote SNMP Agent IP address.";
+        type inet:ip-address;
+      }
+
+      leaf if-ref {
+        description
+          "Interface reference. Implementation captures both node-id and local interface-name.";
+        type if:interface-ref;
+      }
+
+      leaf mib-name {
+        description "SNMP MIB name";
+        type string;
+      }
+
+      leaf object-type {
+        description "SNMP Object type";
+        type string;
+      }
+    }
+
+    output {
+      leaf result-ok {
+        type boolean;
+      }
+
+      leaf value {
+        type string;
+      }
+    }
+  }
+}

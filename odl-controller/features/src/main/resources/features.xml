@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="vodafonepoc-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0">
+    <repository>mvn:com.ericsson.model/features-ericsson-model/${features.ericsson.model.version}/xml/features</repository>
+    <repository>mvn:com.ericsson.snmp.agent/features-snmp-agent/${features.snmp.agent.version}/xml/features</repository>
+    <repository>mvn:com.ericsson.sb.communication/features-southbound-communication/${features.sb.communication.version}/xml/features</repository>
+    <repository>mvn:com.ericsson.basic.network.functions/features-basic-network-functions/${features.basic.network.functions.version}/xml/features</repository>
+    <repository>mvn:com.ericsson.dynamic.data.collector/features-dynamic-data-collector/${features.dynamic.data.collector.version}/xml/features</repository>
+    <repository>mvn:com.ericsson.radio.link.configurator/features-radio-link-configurator/${features.radio.link.configurator.version}/xml/features</repository>
+    <repository>mvn:com.ericsson.cli.plugin/features-cli-plugin/${features.cli.plugin.version}/xml/features</repository>
+    <repository>mvn:com.ericsson.equipment/features-equipment-info/${features.equipment.info.version}/xml/features</repository>
+
+    <feature name='vodafonepoc' version='${project.version}' description="vodafone poc">
+
+      <feature version="${features.ericsson.model.version}">ericsson-model</feature>
+      <feature version="${features.snmp.agent.version}">snmp-agent</feature>
+      <feature version="${features.sb.communication.version}">southbound-communication</feature>
+      <feature version="${features.basic.network.functions.version}">basic-network-functions</feature>
+      <feature version="${features.dynamic.data.collector.version}">dynamic-data-collector</feature>
+      <feature version="${features.radio.link.configurator.version}">radio-link-configurator</feature>
+      <feature version="${features.cli.plugin.version}">cli-plugin</feature>
+      <feature version="${features.equipment.info.version}">equipment-info</feature>
+    </feature>
+</features>

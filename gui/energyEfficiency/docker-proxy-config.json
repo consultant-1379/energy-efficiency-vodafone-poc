@@ -1,0 +1,15 @@
+{
+  "protocol": "http",
+  "host": "energyefficiency_jboss",
+  "port": 8080,
+  "headers": {
+    "X-Tor-Application":"energyefficiency",
+    "X-Tor-UserID":"administrator",
+    "X-Proxy-Password":"TestPassw0rd"
+  },
+  "mappings": [
+    {"source": "/modelInfo",               "name": "Model Information Service"},
+    {"source": "/persistentObject",        "name": "Persistent Object Service"},
+    {"source": "/rest",                    "name": "Presentation Server"}
+  ]
+}

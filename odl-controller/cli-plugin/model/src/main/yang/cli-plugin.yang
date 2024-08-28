@@ -1,0 +1,56 @@
+module cli-plugin {
+    yang-version 1.1;
+
+    namespace "urn:ietf:params:xml:ns:yang:cli-plugin";
+    prefix "cli-pi";
+
+    import ietf-inet-types {
+      prefix "inet";
+      revision-date 2013-07-15;
+    }
+
+    organization "Ericsson";
+    description "The module to support CLI SSH based operations on MINI-LINK";
+    
+    revision 2017-07-14 {
+      description "Initial revision";
+    }
+
+    rpc invoke-command {
+        input {
+          leaf ip-address {
+            type inet:ip-address;
+          }
+    
+          leaf cli-user {
+            type string;
+              default "cli";
+          }
+ 
+          leaf cli-password {
+            type string;
+              default "";
+          }
+        
+          leaf user {
+            type string;
+              default "admin";
+          }
+
+          leaf password {
+            type string;
+          }
+        
+          leaf command {
+            type string;
+          }
+       }
+
+       output {
+         leaf result-ok {
+           description "Rpc operation result.";
+           type boolean;
+         }
+       }
+    }
+}

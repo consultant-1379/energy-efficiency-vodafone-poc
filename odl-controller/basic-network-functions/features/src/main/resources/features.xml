@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="basic-network-functions-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0">
+    <repository>mvn:org.opendaylight.yangtools/features-yangtools/${features.yangtools.version}/xml/features</repository>
+    <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/${mdsal.model.version}/xml/features</repository>
+    <repository>mvn:org.opendaylight.controller/features-mdsal/${mdsal.version}/xml/features</repository>
+    <repository>mvn:com.ericsson.snmp.agent/features-snmp-agent/${features.snmp.agent.version}/xml/features</repository>
+    <repository>mvn:com.ericsson.model/features-ericsson-model/${features.ericsson.model.version}/xml/features</repository>
+ 
+    <feature name='basic-network-functions' version='${project.version}' description="basic network functions">
+      <feature version="${features.snmp.agent.version}">snmp-agent</feature>
+      <feature version="${features.ericsson.model.version}">ericsson-model</feature>
+      <bundle>mvn:com.ericsson.equipment/minilink/${equipment.minilink.version}</bundle>
+      <bundle>mvn:com.ericsson.dynamic.data.collector/dynamic-data-collector-model/${dynamic.data.collector.model.version}</bundle>
+      <bundle>mvn:com.ericsson.basic.network.functions/basic-network-functions-impl/${basic.network.functions.impl.version}</bundle>
+    </feature>
+</features>

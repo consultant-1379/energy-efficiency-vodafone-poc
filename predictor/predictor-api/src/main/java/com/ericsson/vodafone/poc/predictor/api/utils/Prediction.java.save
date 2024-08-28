@@ -1,0 +1,30 @@
+package com.ericsson.vodafone.poc.predictor.api.utils;
+
+public class Prediction <T> {
+
+    private Triplet<T, T, T> predictionTriplet;
+
+    public Prediction(T predictedValue, T lowerThreshold, T upperThreshold) {
+        predictionTriplet = new Triplet<T, T, T>(predictedValue,lowerThreshold,upperThreshold);
+    }
+
+    public T getPredictedValue() {
+        return predictionTriplet.first;
+    }
+
+    public T getLowerThreshold() {
+        return predictionTriplet.second;
+    }
+
+    public T getUpperThreshold() {
+        return predictionTriplet.third;
+    }
+
+
+    @Override
+    public String toString() {
+        return new String("[prediction: " + getPredictedValue() + ", lowerThreshold: " + getLowerThreshold() + ", upperThreshold: " + getUpperThreshold() + "]");
+    }
+
+
+}

@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "id": "energyefficiency",
+    "name": "Energy Efficiency",
+    "path": "/#energyefficiency",
+    "type": "web",
+    "openInNewWindow": true,
+    "groups": [
+        {
+            "id": "Performance_and_Optimization",
+            "name": "Performance_and_Optimization"
+        }
+    ]
+}

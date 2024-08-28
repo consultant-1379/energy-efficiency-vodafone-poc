@@ -1,0 +1,75 @@
+module network-topology-interfaces {
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:network-topology-interfaces";
+  prefix "nt-if";
+ 
+  import yang-ext {
+    prefix "ext";
+    revision-date 2013-07-09;
+  }
+
+  import ietf-network {
+    prefix "nd";
+    revision-date 2016-11-16;
+  }
+
+  import ietf-network-topology {
+    prefix "lnk";
+    revision-date 2016-11-16;
+  }
+
+  import ietf-interfaces {
+    prefix "if";
+    revision-date 2014-05-08;
+  }
+
+  description "Augment the ietf-network-topology IETF YANG model with
+    references to ietf-interface IETF YANG model entities.";
+
+  organization
+    "Ericsson - Via Melen 77 Genova (GE) 16152 Italy";
+
+  revision 2017-07-14 {
+    description "Initial revision";
+  }
+
+  grouping network-ref {
+    uses nd:network-ref;
+  }
+
+  grouping if-topology-type {
+    description
+      "Identifies the if topology type.";
+    container if-topology-type {
+      presence "Indicates ietf-interface based topology augmentations";
+      description
+        "Its presence identifies the IETF interfaces topology type.";
+    }
+  }
+
+  augment "/nd:networks/nd:network/nd:network-types" {
+    description
+      "Introduce new network type for IETF interfaces info.";
+
+    ext:augment-identifier "if-topo-type";
+
+    uses if-topology-type;
+  }
+
+  augment "/nd:networks/nd:network/nd:node/lnk:termination-point" {
+      when "/nd:networks/nd:network/nd:network-types/nt-if:if-topology-type" {
+        description
+          "Augmentation parameters apply only for networks with
+           IETF interfaces topology type.";
+      }
+
+      ext:augment-identifier "tp-if-ref";
+
+      leaf if-ref {
+        description
+          "Introduces the reference to the termination point housed into ietf-network-topology
+          instance.";
+        type if:interface-ref;
+      }
+   }
+}

@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+cp ./start-up/features-mdsal-model-0.10.1-Carbon-features.xml karaf/target/assembly/system/org/opendaylight/mdsal/model/features-mdsal-model/0.10.1-Carbon
+
+./karaf/target/assembly/bin/karaf

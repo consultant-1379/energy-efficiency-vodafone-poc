@@ -1,0 +1,53 @@
+.eaEnergyEfficiency-Left {
+    height: 100%;
+    overflow: auto;
+    width: 100%;
+
+    &-Content {
+        width: 100%;
+    }
+
+    &-Content {
+        &-block {
+            overflow: auto;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            vertical-align: middle;
+            background: url('@{resources-url}/sliding-panels-layout/content_icon.svg') transparent;
+            font-size: 1.8rem;
+            line-height: 2.4rem;
+            font-weight: bold;
+            color: transparent;
+        }
+    }
+
+    &-narrowView {
+        display: none;
+    }
+
+    &-fullView {
+        display: block;
+    }
+
+    @media screen and (max-width: 768px) {
+        &-narrowView {
+            display: block;
+        }
+
+        &-fullView {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        &-searchBtn {
+            min-width: 40px;
+        }
+
+        &-searchBtnSpan {
+            display: none;
+        }
+    }
+
+}

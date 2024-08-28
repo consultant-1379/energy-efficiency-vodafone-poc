@@ -1,0 +1,46 @@
+{
+    "parent": "$(parentJson)/app.json",
+    "defaultPhase": "package",
+    "properties": {
+        "package": "energyefficiency",
+        "name": "EnergyEfficiency",
+        "version": "1.0.0",
+        "skeleton": "2.3.1",
+        "skeletonType": "app"
+    },
+    "phases": {
+        "package": {
+            "depends": [
+                "clean",
+                "analyze",
+                "test",
+                "compile",
+                "compress"
+            ]
+        }
+    },
+    "dependencies": {
+        "clientsdk": "1.37.0",
+        "assets": "1.8.6",
+        "chartlib": "1.6.26",
+        "jscore": "1.7.17",
+        "container": "1.14.11",
+        "i18n": "2.4.5",
+        "contextmenu": "0.1.13",
+        "widgets": "1.8.21",
+        "dataviz": "0.1.12",
+        "flyout": "0.1.8",
+        "formvalidator": "0.2.1",
+        "helpsdk": "2.10.2",
+        "layouts": "1.8.5",
+        "logger": "0.2.1",
+        "mapping": "1.0.1",
+        "navigation": "0.0.17",
+        "router": "1.0.1",
+        "systemtime": "0.0.9",
+        "tablelib": "0.9.11",
+        "terminal": "1.0.2",
+        "uit": "0.3.5",
+        "webpush": "0.2.5"
+    }
+}

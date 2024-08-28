@@ -1,0 +1,6 @@
+{
+  "input" : {
+    "network-ref" : network-ref-field,
+    "if-ref" : if-ref-field
+  }
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="equipment-info-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0">
+ 
+    <feature name='equipment-info' version='${project.version}' description="equipment info">
+      <bundle>mvn:com.ericsson.equipment/minilink/${equipment.minilink.version}</bundle>
+    </feature>
+</features>

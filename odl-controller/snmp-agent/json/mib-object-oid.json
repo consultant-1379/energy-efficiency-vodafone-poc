@@ -1,0 +1,272 @@
+{
+    "mib-object-oid": {
+        "object-list": [
+            {
+                "mib-name": "ptRadioLinkMIB",
+                "object-type": "txOperStatus",
+                "oid": "1.3.6.1.4.1.193.223.2.7.1.1.25",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "ptRadioLinkMIB",
+                "object-type": "actualTxTotalCapacity",
+                "oid": "1.3.6.1.4.1.193.223.2.7.3.1.9",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfRadioLinkRltMIB",
+                "object-type": "xfRLTActualTXPacketCapacity",
+                "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.13",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "ptRadioLinkMIB",
+                "object-type": "ActualOutputPower",
+                "oid": "1.3.6.1.4.1.193.223.2.7.1.1.2",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfRadioLinkPtpRadioMIB",
+                "object-type": "xfRfAtpcTargetInputPowerFE",
+                "oid": "1.3.6.1.4.1.193.81.3.4.3.1.8.1.6",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "ifMIB",
+                "object-type": "ifHCInOctets",
+                "oid": "1.3.6.1.2.1.31.1.1.1.6",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "interfaces",
+                "object-type": "ifOutOctets",
+                "oid": "1.3.6.1.2.1.2.2.1.16",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "ifMIB",
+                "object-type": "ifHCOutOctets",
+                "oid": "1.3.6.1.2.1.31.1.1.1.10",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfRadioLinkPtpRadioMIB",
+                "object-type": "xfRfSelectedMinOutputPower",
+                "oid": "1.3.6.1.4.1.193.81.3.4.3.1.8.1.1",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfRadioLinkRltMIB",
+                "object-type": "xfCarrierTermActualCapacity",
+                "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.13",
+                "radio-frame-id-required": false,
+                "logical-index-required": true
+            },
+            {
+                "mib-name": "interfaces",
+                "object-type": "ifSpeed",
+                "oid": "1.3.6.1.2.1.2.2.1.5",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "interfaces",
+                "object-type": "ifAdminStatus",
+                "oid": "1.3.6.1.2.1.2.2.1.7",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfRadioLinkPtpRadioMIB",
+                "object-type": "xfRfMaxOutputPowerLast7Days",
+                "oid": "1.3.6.1.4.1.193.81.3.4.3.1.8.1.27",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "ptRadioLinkMIB",
+                "object-type": "txAdminStatus",
+                "oid": "1.3.6.1.4.1.193.223.2.7.1.1.26",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfRadioLinkRltMIB",
+                "object-type": "xfCarrierTermSelectedMaxACM",
+                "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.8",
+                "radio-frame-id-required": false,
+                "logical-index-required": true
+            },
+            {
+                "mib-name": "xfRadioLinkRltMIB",
+                "object-type": "xfRLTActualTXTotalCapacity",
+                "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.12",
+                "radio-frame-id-required": false,
+                "logical-index-required": true
+            },
+            {
+                "mib-name": "xfEthernetBridgeMIB",
+                "object-type": "xfEthernetIfMinSpeed",
+                "oid": "1.3.6.1.4.1.193.81.4.1.3.1.1.1.1.5",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfEthernetBridgeMIB",
+                "object-type": "xfEthernetIfUsage",
+                "oid": "1.3.6.1.4.1.193.81.4.1.3.1.1.1.1.2",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfRadioLinkPtpRadioMIB",
+                "object-type": "xfRfSelectedMaxOutputPower",
+                "oid": "1.3.6.1.4.1.193.81.3.4.3.1.8.1.2",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfRadioLinkPtpRadioMIB",
+                "object-type": "xfRFTxAdminStatus",
+                "oid": "1.3.6.1.4.1.193.81.3.4.3.1.2.1.8",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "ptRadioLinkMIB",
+                "object-type": "selectedMinAcm",
+                "oid": "1.3.6.1.4.1.193.223.2.7.1.1.55",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfRadioLinkPtpRadioMIB",
+                "object-type": "xfRfMaxOutputPowerSinceReset",
+                "oid": "1.3.6.1.4.1.193.81.3.4.3.1.8.1.29",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfEthernetBridgeMIB",
+                "object-type": "xfEthernetIfMaxSpeed",
+                "oid": "1.3.6.1.4.1.193.81.4.1.3.1.1.1.1.6",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfRadioLinkPtpRadioMIB",
+                "object-type": "xfCarrierTermSelectedMinACM",
+                "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.6",
+                "radio-frame-id-required": false,
+                "logical-index-required": true
+            },
+            {
+                "mib-name": "xfRadioLinkRltMIB",
+                "object-type": "xfMaxACMCapacity",
+                "oid": "1.3.6.1.4.1.193.81.3.4.5.1.4.1.5",
+                "radio-frame-id-required": true,
+                "logical-index-required": true
+            },
+            {
+                "mib-name": "xfRadioLinkPtpRadioMIB",
+                "object-type": "xfRFTxOperStatus",
+                "oid": "1.3.6.1.4.1.193.81.3.4.3.1.2.1.7",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfRadioLinkRltMIB",
+                "object-type": "xfCarrierTermRadioFrameId",
+                "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.4",
+                "radio-frame-id-required": false,
+                "logical-index-required": true
+            },
+            {
+                "mib-name": "xfRadioLinkRltMIB",
+                "object-type": "xfCarrierTermActualACM",
+                "oid": "1.3.6.1.4.1.193.81.3.4.3.1.2.1.7",
+                "radio-frame-id-required": false,
+                "logical-index-required": true
+            },
+            {
+                "mib-name": "interfaces",
+                "object-type": "ifInOctets",
+                "oid": "1.3.6.1.2.1.2.2.1.10",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "ptRadioLinkMIB",
+                "object-type": "channelSpacing",
+                "oid": "1.3.6.1.4.1.193.223.2.7.1.1.23",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfRadioLinkRltMIB",
+                "object-type": "xfChannelSpacing",
+                "oid": "1.3.6.1.4.1.193.81.3.4.5.1.4.1.2",
+                "radio-frame-id-required": true,
+                "logical-index-required": true
+            },
+            {
+                "mib-name": "ifMIB",
+                "object-type": "ifHighSpeed",
+                "oid": "1.3.6.1.2.1.31.1.1.1.15",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "ptRadioLinkMIB",
+                "object-type": "selectedMaxOutputPower",
+                "oid": "1.3.6.1.4.1.193.223.2.7.1.1.30",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfRadioLinkPtpRadioMIB",
+                "object-type": "xfRfCurrentOutputPower",
+                "oid": "1.3.6.1.4.1.193.81.3.4.3.1.8.1.3",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfRadioLinkRltMIB",
+                "object-type": "xfRLWANActualCapacity",
+                "oid": "1.3.6.1.4.1.193.81.3.4.5.1.12.1.8",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "xfEthernetBridgeMIB",
+                "object-type": "xfLagMembers",
+                "oid": "1.3.6.1.4.1.193.81.4.1.2.1.7.1.1.2",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "ptRadioLinkMIB",
+                "object-type": "selectedMaxAcm",
+                "oid": "1.3.6.1.4.1.193.223.2.7.1.1.56",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            },
+            {
+                "mib-name": "ptRadioLinkMIB",
+                "object-type": "targetInputPowerFarEnd",
+                "oid": "1.3.6.1.4.1.193.223.2.7.1.1.34",
+                "radio-frame-id-required": false,
+                "logical-index-required": false
+            }
+        ]
+    }
+}

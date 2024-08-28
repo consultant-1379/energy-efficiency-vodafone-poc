@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Copyright (c) 2014-2015 Cisco Systems, Inc. and others.  All rights reserved.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License v1.0 which accompanies this distribution,
+ * and is available at http://www.eclipse.org/legal/epl-v10.html
+--><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.opendaylight.snmp</groupId>
+        <artifactId>snmp-parent</artifactId>
+        <version>1.3.1-Carbon</version>
+        <relativePath>../parent</relativePath>
+    </parent>
+    <artifactId>mibs-model</artifactId>
+    <description>The SNMP Project of OpenDaylight addresses the need for a southbound plugin that allows applications and controller services to interact with devices using SNMP. The SNMP southbound plugin will allow applications acting as an SNMP Manager to interact with devices that support an SNMP agent.</description>
+    <packaging>bundle</packaging>
+    <name>${project.artifactId}</name>
+    <url>https://wiki.opendaylight.org/view/SNMP_Plugin:Main</url>
+    <licenses>
+        <license>
+            <name>Eclipse Public License v1.0</name>
+            <url>http://www.eclipse.org/legal/epl-v10.html</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Adam Dierkens</name>
+            <email>adierken@cisco.com</email>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:ssh://git.opendaylight.org:29418/snmp.git</connection>
+        <developerConnection>scm:git:ssh://git.opendaylight.org:29418/snmp.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://wiki.opendaylight.org/view/SNMP_Plugin:Main</url>
+    </scm>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+            </plugin>
+             <plugin>
+                <groupId>org.opendaylight.yangtools</groupId>
+                <artifactId>yang-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.opendaylight.snmp</groupId>
+                <artifactId>yang-oid-plugin</artifactId>
+                <version>${snmp.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>oid</goal>
+                        </goals>
+                        <configuration>
+                            <yangDirectory>target/generated-sources/sal</yangDirectory>
+                            <oidDirectory>src/main/oid</oidDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.opendaylight.mdsal.model</groupId>
+            <artifactId>ietf-yang-types-20130715</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.opendaylight.mdsal</groupId>
+            <artifactId>yang-binding</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.opendaylight.yangtools</groupId>
+            <artifactId>concepts</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.opendaylight.yangtools</groupId>
+            <artifactId>yang-common</artifactId>
+        </dependency>
+    </dependencies>
+</project>
